@@ -1,5 +1,5 @@
 import Nav from '../Nav';
-import { Routes, Rout, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import ConfigurationsPage from '../../pages/ConfigurationsPage';
 import TeamsPage from '../../pages/TeamsPage';
 import { Context } from '../../context';
@@ -24,9 +24,13 @@ function App() {
     )
   }
 
+  const deleteUser = (id) => {
+    setUsers(users.filter(elem => elem.id !== id))
+  };
+
   return (
     <div>
-      <Context.Provider value={{ teams, users, addTeam, addUser }}>
+      <Context.Provider value={{ teams, users, addTeam, addUser, deleteUser }}>
         <Nav />
         <Routes>
           <Route path='/configurations' element={ <ConfigurationsPage  /> } />

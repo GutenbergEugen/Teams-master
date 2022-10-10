@@ -10,7 +10,7 @@ export default function TeamsPage() {
 const { users } = useContext(Context);
 
   return (
-    <div>
+    <div className={s.container} >
         {
             users.length === 0
             ? 'No users'
